@@ -1,0 +1,29 @@
+# $Header$
+begin: data;
+	problem: initial value;
+end: data;
+
+begin: initial value;
+end: initial value;
+
+begin: control data;
+end: control data;
+
+module load: "libmodule-gsoc-shubhaditya";
+drive caller: 0, Custom_drive, sine, 0., 2*pi, 1., forever, 0., 0., 10., 100;
+remark: "value", model::drive(0, 0.);
+drive caller: 1, Custom_drive, sine, 0., 2*pi, 1., forever, 0., 0., 10., 100;
+remark: "derivative", model::drivep(1, 0.);
+
+
+drive caller: 2, Custom_drive, const, 40., 0., 10., 100;
+remark: "value", model::drive(2, 0.);
+drive caller: 3, Custom_drive, const, 40., 0., 10., 100;
+remark: "derivative", model::drivep(3, 0.);
+
+
+
+drive caller: 4, Custom_drive, cubic, 20., 3., 4., 12., 0., 10., 100;
+remark: "value", model::drive(4, 0.);
+drive caller: 5, Custom_drive, cubic, 20., 3., 4., 12., 0., 10., 100;
+remark: "derivative", model::drivep(5, 0.);
